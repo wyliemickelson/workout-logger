@@ -9,16 +9,15 @@ const workoutSchema = new Schema({
   },
   defaultRestTimer: {
     type: Number,
-    required: true
+    default: 90,
   },
   dateStart: {
     type: Date,
-    required: true,
-    default: new Date.now()
+    default: Date.now()
   },
   notes: {
     type: String,
-    required: true,
+    default: '',
   },
   exercises: [exerciseSchema]
 })

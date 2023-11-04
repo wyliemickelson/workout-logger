@@ -1,27 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const exerciseSchema = new Schema({
-  title: {
-    type: String,
-    required: true,
-  },
-  restTimer: {
-    type: Number,
-    required: true,
-  },
-  note: {
-    type: String,
-    required: true,
-  },
-  weightMetric: {
-    type: String,
-    required: true,
-    default: 'lbs'
-  },
-  sets: [setSchema]
-})
-
 const setSchema = new Schema({
   reps: {
     type: Number,
@@ -31,6 +10,26 @@ const setSchema = new Schema({
     type: Number,
     required: true
   }
+})
+
+const exerciseSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  restTimer: {
+    type: Number,
+    default: 0,
+  },
+  note: {
+    type: String,
+    default: ''
+  },
+  weightMetric: {
+    type: String,
+    default: 'lbs'
+  },
+  sets: [setSchema]
 })
 
 module.exports = exerciseSchema
